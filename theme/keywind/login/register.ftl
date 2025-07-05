@@ -24,24 +24,6 @@
         type="text"
         value=(register.formData.firstName)!''
       />
-      <@input.kw
-        autocomplete="family-name"
-        invalid=messagesPerField.existsError("lastName")
-        label=msg("lastName")
-        message=kcSanitize(messagesPerField.get("lastName"))
-        name="lastName"
-        type="text"
-        value=(register.formData.lastName)!''
-      />
-      <@input.kw
-        autocomplete="email"
-        invalid=messagesPerField.existsError("email")
-        label=msg("email")
-        message=kcSanitize(messagesPerField.get("email"))
-        name="email"
-        type="email"
-        value=(register.formData.email)!''
-      />
       <#if !realm.registrationEmailAsUsername>
         <@input.kw
           autocomplete="username"
@@ -53,6 +35,15 @@
           value=(register.formData.username)!''
         />
       </#if>
+      <@input.kw
+        autocomplete="email"
+        invalid=messagesPerField.existsError("email")
+        label=msg("email")
+        message=kcSanitize(messagesPerField.get("email"))
+        name="email"
+        type="email"
+        value=(register.formData.email)!''
+      />
       <#if passwordRequired??>
         <@input.kw
           autocomplete="new-password"
