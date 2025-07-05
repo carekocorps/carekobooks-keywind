@@ -6,7 +6,7 @@
 <#import "components/atoms/link.ftl" as link>
 
 <@layout.registrationLayout
-  displayMessage=!messagesPerField.existsError("firstName", "lastName", "email", "username", "password", "password-confirm")
+  displayMessage=!messagesPerField.existsError("email", "username", "password", "password-confirm")
   ;
   section
 >
@@ -14,16 +14,6 @@
     ${msg("registerTitle")}
   <#elseif section="form">
     <@form.kw action=url.registrationAction method="post">
-      <@input.kw
-        autocomplete="given-name"
-        autofocus=true
-        invalid=messagesPerField.existsError("firstName")
-        label=msg("firstName")
-        message=kcSanitize(messagesPerField.get("firstName"))
-        name="firstName"
-        type="text"
-        value=(register.formData.firstName)!''
-      />
       <#if !realm.registrationEmailAsUsername>
         <@input.kw
           autocomplete="username"
