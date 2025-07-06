@@ -4,7 +4,7 @@
   <div class="pt-4 separate text-secondary-600 text-sm">
     ${msg("identity-provider-login-label")}
   </div>
-  <div class="flex justify-center gap-5">
+  <div class="flex justify-center">
     <#list providers as provider>
       <#switch provider.alias>
         <#case "apple">
@@ -63,7 +63,7 @@
       </#switch>
 
       <a
-        class="${colorClass} border border-secondary-200 flex justify-center px-5 py-3 rounded-lg hover:border-transparent w-12"
+        class="${colorClass} border border-secondary-200 flex justify-center px-2 py-2 rounded-lg hover:border-transparent w-full"
         data-provider="${provider.alias}"
         href="${provider.loginUrl}"
         type="button"
